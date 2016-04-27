@@ -11,9 +11,10 @@ from calcularPrecio import Tarifa
 
 class TestCalcularPrecio(unittest.TestCase):
 
-
     def setUp(self):
-        self.t = Tarifa()
+        self.tarifa = Tarifa()
+        self.ini = datetime.datetime()
+        self.fin = datetime.datetime()
 
 
 if __name__ == "__main__":
