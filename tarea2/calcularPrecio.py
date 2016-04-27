@@ -31,4 +31,11 @@ def calcularPrecio(tarifa, tiempoDeTrabajo):
         print("Error: fecha de inicio posterior a fecha de fin.")
         return -1
     
-    return horas
+    t = datetime.timedelta(hours = 1)
+    precio = 0
+
+    for i in range(horas):                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+        precio += (ini.weekday() < 5)*tarifa.sem + (4 < ini.weekday())*tarifa.fin
+        ini += t
+        
+    return precio
