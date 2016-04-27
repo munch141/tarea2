@@ -14,6 +14,11 @@ class Tarifa:
         self.fin = Decimal(t_fin)
 
 def calcularPrecio(tarifa, tiempoDeTrabajo):
+    '''
+    El dominio de datos de calcularPrecio es el conjunto de tuplas de numeros
+    reales positivos unido al conjunto de tuplas de fechas validas donde la
+    segunda fecha es posterior a la primera.
+    '''
     ini = tiempoDeTrabajo[0]
     fin = tiempoDeTrabajo[1]
     

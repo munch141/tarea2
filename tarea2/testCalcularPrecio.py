@@ -13,15 +13,7 @@ class TestCalcularPrecio(unittest.TestCase):
 
 
     def setUp(self):
-        pass
-
-
-    def tearDown(self):
-        pass
-
-
-    def testName(self):
-        pass
+        self.t = Tarifa()
 
 
 if __name__ == "__main__":
