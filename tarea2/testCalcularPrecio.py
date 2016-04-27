@@ -5,7 +5,6 @@ Created on Apr 26, 2016
 '''
 import unittest
 import datetime
-from decimal import Decimal
 from calcularPrecio import Tarifa
 
 
