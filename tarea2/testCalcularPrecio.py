@@ -14,7 +14,7 @@ class TestCalcularPrecio(unittest.TestCase):
     def setUp(self):
         self.tarifa = Tarifa(1,1)
         self.ini = datetime.datetime(2016, 04, 01, 07, 00)
-        self.fin = datetime.datetime(2016, 04, 01, 07, 15)
+        self.fin = datetime.datetime(2016, 04, 01, 07, 00)
 
 
 if __name__ == "__main__":
