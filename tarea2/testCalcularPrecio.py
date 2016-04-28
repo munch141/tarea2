@@ -27,6 +27,12 @@ class TestCalcularPrecio(unittest.TestCase):
         ini = datetime.datetime(2016, 4, 15, 7, 0)
         fin = datetime.datetime(2016, 4, 14, 7, 0)
         self.assertEqual(-1, calcularPrecio(tarifa, [ini, fin]))
+        
+    def testHoraEntreViernesySabado(self):
+        tarifa = Tarifa(1,1)
+        ini = datetime.datetime(2016, 4, 1, 7, 0)
+        fin = datetime.datetime(2016, 4, 2, 7, 0)
+        self.assertEqual(-1, calcularPrecio(tarifa, [ini, fin]))
     
 
 if __name__ == "__main__":
