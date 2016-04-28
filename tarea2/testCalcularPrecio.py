@@ -21,6 +21,12 @@ class TestCalcularPrecio(unittest.TestCase):
         ini = datetime.datetime(2016, 4, 1, 7, 0)
         fin = datetime.datetime(2016, 4, 8, 7, 0)
         self.assertEqual(168, calcularPrecio(tarifa, [ini, fin]))
+        
+    def testTarifaSem0(self):
+        tarifa = Tarifa(0,1)
+        ini = datetime.datetime(2016, 4, 1, 7, 0)
+        fin = datetime.datetime(2016, 4, 8, 7, 0)
+        self.assertEqual(24*2, calcularPrecio(tarifa, [ini, fin]))
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
