@@ -5,14 +5,16 @@ Created on Apr 26, 2016
 '''
 import unittest
 import datetime
-from calcularPrecio import Tarifa
+from calcularPrecio import *
 
 
 class TestCalcularPrecio(unittest.TestCase):
     
-    def testName(self):
-        pass
-
+    def testTimedelta15min(self):
+        tarifa = Tarifa(1,1)
+        ini = datetime.datetime(2016, 4, 1, 7, 0)
+        fin = datetime.datetime(2016, 4, 1, 7, 15)
+        self.assertEqual(1, calcularPrecio(tarifa, [ini, fin]))
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
