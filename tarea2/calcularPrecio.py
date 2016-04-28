@@ -39,7 +39,7 @@ def calcularPrecio(tarifa, tiempoDeTrabajo):
     t = datetime.timedelta(hours = 1)
     precio = 0
 
-    for i in range(horas):                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+    for i in range(horas):
         precio += (ini.weekday() < 5)*tarifa.sem + (4 < ini.weekday())*tarifa.fin
         ini += t
         
