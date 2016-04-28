@@ -19,6 +19,10 @@ def calcularPrecio(tarifa, tiempoDeTrabajo):
     reales positivos unido al conjunto de tuplas de fechas validas donde la
     segunda fecha es posterior a la primera.
     '''
+    if tarifa.sem < 0 or tarifa.fin < 0:
+        print("Error: las tasas de la tarifa no pueden ser negativas.")
+        return -1
+    
     ini = tiempoDeTrabajo[0]
     fin = tiempoDeTrabajo[1]
     
@@ -26,7 +30,10 @@ def calcularPrecio(tarifa, tiempoDeTrabajo):
     t = t.total_seconds()
     
     if t < 900:
-        horas = 0
+        if t < 0:
+            horas = -1
+        else:
+            horas = 0
     elif 604800 < t:
         horas = 168
     else:
@@ -40,7 +47,12 @@ def calcularPrecio(tarifa, tiempoDeTrabajo):
     precio = 0
 
     for i in range(horas):
-        precio += (ini.weekday() < 5)*tarifa.sem + (4 < ini.weekday())*tarifa.fin
+        if ((ini.weekday() == 4) and ((ini+t).weekday() == 5)) or \
+           ((ini.weekday() == 6) and ((ini+t).weekday() == 0)):
+            precio += tarifa.sem + tarifa.fin
+        else:
+            precio += (ini.weekday() < 5)*tarifa.sem + \
+                      (4 < ini.weekday())*tarifa.fin
         ini += t
         
     return precio
